@@ -14,7 +14,7 @@ public class MyFile {
     public MyFile(File file) throws IOException {
         this.fileName = file.getName();
         this.absolutePath = file.getAbsolutePath();
-        this.creationDate = Files.readAttributes(file.toPath(), BasicFileAttributes.class).creationTime().toString().substring(0, 10);
+        this.creationDate = Files.readAttributes(file.toPath(), BasicFileAttributes.class).creationTime().toString().substring(0, 19);
         this.size = file.length();
     }
 

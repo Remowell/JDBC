@@ -10,8 +10,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.attribute.BasicFileAttributes;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -30,7 +28,6 @@ public class MainServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //метот дуГет из супера только вызывает ошибку
         File folder = new File(req.getParameter("path"));
         ArrayList<MyFile> directories = new ArrayList<>();
         ArrayList<MyFile> binaryFiles = new ArrayList<>();

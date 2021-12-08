@@ -1,7 +1,5 @@
 package Servlets;
 
-import Models.MyFile;
-
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,10 +7,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.util.ArrayList;
-import java.util.Date;
 
 @WebServlet("/download")
 public class DownloadServlet extends HttpServlet {
@@ -29,7 +23,6 @@ public class DownloadServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        //метот дуГет из супера только вызывает ошибку
         File file = new File(req.getParameter("path"));
 
         resp.setContentType("application/octet-stream");
