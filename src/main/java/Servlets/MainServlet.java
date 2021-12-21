@@ -1,5 +1,7 @@
 package Servlets;
 
+import Accounts.AccountService;
+import Accounts.UserAccount;
 import Models.MyFile;
 
 import javax.servlet.ServletConfig;
@@ -28,6 +30,13 @@ public class MainServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+
+        UserAccount user = AccountService.getUserBySessionId(req.getSession().getId());
+
+        if (user == null) {
+            resp.sendRedirect("/my-app/login");
+        }
+
         File folder = new File(req.getParameter("path"));
         ArrayList<MyFile> directories = new ArrayList<>();
         ArrayList<MyFile> binaryFiles = new ArrayList<>();

@@ -1,3 +1,8 @@
 Servlets\DownloadServlet.class
 Servlets\MainServlet.class
 Models\MyFile.class
+Servlets\LogoutServlet.class
+Servlets\RegistrationServlet.class
+Accounts\UserAccount.class
+Servlets\LoginServlet.class
+Accounts\AccountService.class

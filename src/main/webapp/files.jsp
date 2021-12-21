@@ -41,5 +41,10 @@
                 </tr>
             </c:forEach>
         </table>
+        <div>
+            <form action="/my-app/logout" method="post">
+                <input class="button" type="submit" value="Выйти"/>
+            </form>
+        </div>
     </body>
 </html>
