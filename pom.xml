@@ -8,7 +8,7 @@
     <artifactId>Files</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <packaging>war</packaging> <!-- веб проект, значит упаковываем не в jar, а war (web архив) -->
+    <packaging>war</packaging>
 
     <build>
         <plugins>

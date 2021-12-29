@@ -10,11 +10,6 @@ public class UserAccount {
         this.password = password;
         this.email = email;
     }
-    public UserAccount(String login) {
-        this.login = login;
-        this.password = login;
-        this.email = login;
-    }
 
     public String getLogin() {
         return login;

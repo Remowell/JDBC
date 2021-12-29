@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 
 @WebServlet("/files")
@@ -50,14 +51,19 @@ public class MainServlet extends HttpServlet {
         }
 
         String path = req.getParameter("path");
+
+        if (!Arrays.asList(path.split("\\\\")).contains("my_users") || !Arrays.asList(path.split("\\\\")).contains(user.getLogin())) {
+            resp.sendRedirect(String.format("/my-app/files?path=C:\\my_users\\%s", user.getLogin()));
+            return;
+        }
+
         String[] backPathArr = path.split("\\\\");
         String backPath = "";
-        if(path.equals("C:\\")){
+        if (path.equals("C:\\")) {
             backPath = path;
-        }
-        else{
-            for (int i = 0; i < backPathArr.length-1; i++) {
-                backPath+=backPathArr[i] + "\\";
+        } else {
+            for (int i = 0; i < backPathArr.length - 1; i++) {
+                backPath += backPathArr[i] + "\\";
             }
         }
 
@@ -66,7 +72,7 @@ public class MainServlet extends HttpServlet {
         req.setAttribute("generatedTime", new Date());
         req.setAttribute("directories", directories);
         req.setAttribute("binaryFiles", binaryFiles);
-        getServletContext().getRequestDispatcher("/files.jsp").forward(req,resp);
+        getServletContext().getRequestDispatcher("/files.jsp").forward(req, resp);
     }
 
     @Override

@@ -34,6 +34,6 @@ public class LoginServlet extends HttpServlet {
 
         AccountService.addSession(req.getSession().getId(), profile);
         req.getSession().setAttribute("login", login);
-        resp.sendRedirect("/my-app/files?path=C:/");
+        resp.sendRedirect(String.format("/my-app/files?path=C:\\my_users\\%s", login));
     }
 }
